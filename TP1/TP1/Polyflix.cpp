@@ -5,11 +5,17 @@ string SEPARATEUR = "===========================================================
 // TODO: Implémenter les méthodes de la classe Polyflix ici.
 
 // Constructeurs et destructeur
-Polyflix::Polyflix() { }
+Polyflix::Polyflix() {
+	Polyflix("", "");
+}
 
-Polyflix::Polyflix(string nomUtilisateur, string motDePasse) { }
+Polyflix::Polyflix(string nomUtilisateur, string motDePasse) {
+	utilisateur_ = nomUtilisateur;
+	motDePasse_ = motDePasse;
+}
 
-Polyflix::~Polyflix() { }
+Polyflix::~Polyflix() {
+}
 
 // getters
 string Polyflix::getUtilisateur() const { return ""; }
