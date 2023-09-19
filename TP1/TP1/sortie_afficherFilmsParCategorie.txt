@@ -1,0 +1,33 @@
+Pour la categorie selectionne, Polyflix vous presente les films suivants:
+======================================================================================
+The Wolf of Wall Street (2013) de Martin Scorsese
+Duree: 180 minutes
+Categorie: Comedie
+Acteurs:
+Leonardo DiCaprio
+------------------------------------------------
+	Date de naissance: 1974
+	Biographie: Leonardo DiCaprio is an American actor and producer. His Name was Inspired by a DaVinci Painting.
+------------------------------------------------
+Brad Pitt
+------------------------------------------------
+	Date de naissance: 1963
+	Biographie: William Bradley Pitt is an American actor and film producer. He won his first acting Oscar for his role in 'Once Upon a Time in Hollywood' in 2020.
+------------------------------------------------
+Critiques:
+Kevin: Super film! - Note: 5
+Note moyenne: 5.0
+======================================================================================
+Fight Club (1999) de David Fincher
+Duree: 139 minutes
+Categorie: Comedie
+Acteurs:
+Brad Pitt
+------------------------------------------------
+	Date de naissance: 1963
+	Biographie: William Bradley Pitt is an American actor and film producer. He won his first acting Oscar for his role in 'Once Upon a Time in Hollywood' in 2020.
+------------------------------------------------
+Critiques:
+Alex: Ce film est terrible :( - Note: 1
+Note moyenne: 1.0
+======================================================================================
