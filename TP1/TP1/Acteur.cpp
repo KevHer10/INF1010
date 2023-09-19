@@ -45,10 +45,12 @@ void Acteur::setBiographie(const std::string bio) {
 
 // Méthode d'affichage
 void Acteur::afficher() const {
-	cout << nom_ << endl;
-	cout << "------------------------------------------------" << endl;
-	cout << "\t Date de naissence: " << anneeNaissance_ << endl;
-	cout << "\t Biographie: " << biographie_ << endl;
-	cout << "------------------------------------------------" << endl;
+	//    string sortieAttendue = NOM_1 + "\n" + SEPARATEUR_SIMPLE + "\n\tDate de naissance: " + to_string(ANNEE_NAISSANCE_1) + "\n\tBiographie: " + BIO_1 + "\n" + SEPARATEUR_SIMPLE + "\n";
+
+	cout << nom_ << "\n";
+	cout << SEPARATEUR_SIMPLE;
+	cout << "\n\tDate de naissance: " << anneeNaissance_;
+	cout << "\n\tBiographie: " << biographie_ << "\n";
+	cout << SEPARATEUR_SIMPLE << "\n";
 
 }
