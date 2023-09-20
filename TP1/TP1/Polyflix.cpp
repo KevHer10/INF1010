@@ -5,28 +5,26 @@ string SEPARATEUR = "===========================================================
 // TODO: Implémenter les méthodes de la classe Polyflix ici.
 
 // Constructeurs et destructeur
-Polyflix::Polyflix() {
-	Polyflix("", "");
+Polyflix::Polyflix() : Polyflix("","") {
 }
 
-Polyflix::Polyflix(string nomUtilisateur, string motDePasse) {
-	utilisateur_ = nomUtilisateur;
-	motDePasse_ = motDePasse;
-}
+Polyflix::Polyflix(string nomUtilisateur, string motDePasse) : utilisateur_(nomUtilisateur), motDePasse_(motDePasse) {}
 
 Polyflix::~Polyflix() {
 }
 
 // getters
-string Polyflix::getUtilisateur() const { return ""; }
+string Polyflix::getUtilisateur() const { return utilisateur_; }
 
 // setters
-void Polyflix::setUtilisateur(string utilisateur) { }
+void Polyflix::setUtilisateur(string utilisateur) { utilisateur_ = utilisateur; }
 
-void Polyflix::setMotDePasse(string motDePasse) { }
+void Polyflix::setMotDePasse(string motDePasse) { motDePasse_ = motDePasse; }
 
 // Méthodes pour la connexion
-bool Polyflix::connecter(string utilisateur, string motDePasse) { return false; }
+bool Polyflix::connecter(string utilisateur, string motDePasse) { 
+	return false; 
+}
 
 // Méthodes pour gérer les films
 bool Polyflix::ajouterFilm(string titre, int anneeDeSortie, string realisateur, Categorie categorie, int duree) { return false; }
@@ -39,7 +37,7 @@ Film* Polyflix::chercherFilmParTitre(const string& titre) const { return nullptr
 vector<Film*> Polyflix::listerFilmsParCategorie(Categorie categorie) const { return {}; }
 
 // Méthodes pour obtenir des statistiques
-int Polyflix::getNombreTotalFilms() const { return 0; }
+int Polyflix::getNombreTotalFilms() const { return films_.size(); }
 
 int Polyflix::getNombreFilmsParCategorie(Categorie categorie) const { return 0; }
 

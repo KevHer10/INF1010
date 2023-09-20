@@ -28,13 +28,13 @@ Categorie Film::getCategorie() const { return Categorie::HORREUR; }
 
 int Film::getDuree() const { return 0; }
 
-vector<Acteur*> Film::getActeurs() const { return {acteurs_}; }
+vector<Acteur*> Film::getActeurs() const { return {acteurs_}; } //ici
 
-vector<Critique*> Film::getCritiques() const { return {critiques_}; }
+vector<Critique*> Film::getCritiques() const { return {critiques_}; } //ici
 
-int Film::getNbActeurs() const { return acteurs_.size(); }
+int Film::getNbActeurs() const { return acteurs_.size(); }//ici
 
-int Film::getNbCritiques() const { return critiques_.size(); }
+int Film::getNbCritiques() const { return critiques_.size(); }//ici
 
 // Setters
 void Film::setTitre(string titre) { titre_ = titre; }
@@ -47,9 +47,9 @@ void Film::setCategorie(Categorie categorie) { categorie_ = categorie; }
 
 void Film::setDuree(int duree) { duree_ = duree; }
 
-void Film::setActeurs(vector<Acteur*> acteurs) {}
+void Film::setActeurs(vector<Acteur*> acteurs) {}//ici
 
-void Film::setCritiques(vector<Critique*> critiquesVec) {}
+void Film::setCritiques(vector<Critique*> critiquesVec) {}//ici
 
 // Méthodes fonctionnelles
 Acteur* Film::trouverActeur(const string nom) const {
@@ -99,15 +99,38 @@ bool Film::ajouterCritique(string nom, string commentaire, int note) {
 }
 
 bool Film::retirerActeur(const string nom) {
+    
+    for (auto& acteur : acteurs_) {
+        if (acteur->getNom() == nom)
+            acteur = acteurs_.back();
+        acteurs_.pop_back();
+        return true;
+        //break;
+    }
+
     return false;
 }
 
 bool Film::retirerCritique(const string nom) {
+    for (auto& critique : critiques_) {
+        if (critique->getAuteur() == nom)
+            critique = critiques_.back();
+        critiques_.pop_back();
+        return true;
+        //break;
+    }
+
     return false;
 }
 
 float Film::obtenirNoteMoyenne() const {
-    return 0;
+    float moyenne = 0;
+    for (auto& critique : critiques_) {
+        moyenne += critique->getNote();
+    }
+    moyenne = moyenne / critiques_.size();
+
+    return moyenne;
 }
 
 // Méthodes d'affichage
