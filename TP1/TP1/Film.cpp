@@ -5,7 +5,7 @@
 // TODO: Implémenter les méthodes de la classe Film ici.
 
 // Constructeurs et destructeur
-Film::Film() {}
+Film::Film() : Film("",0,"",Categorie::ACTION,0) {}
 
 Film::Film(string titre, int anneeDeSortie, string realisateur, Categorie categorie, int duree) {
     titre_ = titre;
@@ -15,16 +15,16 @@ Film::Film(string titre, int anneeDeSortie, string realisateur, Categorie catego
     duree_ = duree;
 }
 
-Film::~Film() { }
+Film::~Film() {}
 
 // Getters
-string Film::getTitre() const { return ""; }
+string Film::getTitre() const { return titre_; }
 
-string Film::getRealisateur() const { return ""; }
+string Film::getRealisateur() const { return realisateur_; }
 
-int Film::getAnneeDeSortie() const { return 0; }
+int Film::getAnneeDeSortie() const { return anneeDeSortie_; }
 
-Categorie Film::getCategorie() const { return Categorie::HORREUR; }
+Categorie Film::getCategorie() const { return categorie_; }
 
 int Film::getDuree() const { return 0; }
 
@@ -47,21 +47,35 @@ void Film::setCategorie(Categorie categorie) { categorie_ = categorie; }
 
 void Film::setDuree(int duree) { duree_ = duree; }
 
-void Film::setActeurs(vector<Acteur*> acteurs) {}//ici
+void Film::setActeurs(vector<Acteur*>& acteurs) {
+    for (auto& acteur : acteurs_) {
+        delete acteur;
+        acteur = nullptr;
+    }
+   
+    acteurs_ = acteurs;
+}//ici
 
-void Film::setCritiques(vector<Critique*> critiquesVec) {}//ici
+void Film::setCritiques(vector<Critique*> critiquesVec) {
+
+    for (auto&& critique : critiques_) {
+        delete critique;
+        critique = nullptr;
+    }
+}//ici
 
 // Méthodes fonctionnelles
 Acteur* Film::trouverActeur(const string nom) const {
-    for (auto& acteur : acteurs_) 
+    for (auto& acteur : acteurs_) {
         if (acteur->getNom() == nom)
             return acteur;
-
+    }
+    
     return nullptr;
 }
 
 Critique* Film::trouverCritique(const string nom) const {
-    for (auto& critique : critiques_) 
+    for (auto&& critique : critiques_)
         if (critique->getAuteur() == nom)
             return critique;
        
@@ -70,7 +84,7 @@ Critique* Film::trouverCritique(const string nom) const {
 
 bool Film::isActeurPresent(string nomActeur) const {
     
-    if (trouverActeur(nomActeur) != nullptr)
+    if (trouverActeur(nomActeur) != nullptr)  
             return true;
         
     return false;
@@ -100,19 +114,20 @@ bool Film::ajouterCritique(string nom, string commentaire, int note) {
 
 bool Film::retirerActeur(const string nom) {
     
-    for (auto& acteur : acteurs_) {
+    for (auto&& acteur : acteurs_) {
         if (acteur->getNom() == nom)
             acteur = acteurs_.back();
         acteurs_.pop_back();
+        delete acteurs_.back();
         return true;
-        //break;
+        break;
     }
 
     return false;
 }
 
 bool Film::retirerCritique(const string nom) {
-    for (auto& critique : critiques_) {
+    for (auto&& critique : critiques_) {
         if (critique->getAuteur() == nom)
             critique = critiques_.back();
         critiques_.pop_back();
@@ -125,12 +140,12 @@ bool Film::retirerCritique(const string nom) {
 
 float Film::obtenirNoteMoyenne() const {
     float moyenne = 0;
-    for (auto& critique : critiques_) {
+    for (auto&& critique : critiques_) {
         moyenne += critique->getNote();
     }
     moyenne = moyenne / critiques_.size();
 
-    return moyenne;
+    return 0;
 }
 
 // Méthodes d'affichage

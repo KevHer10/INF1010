@@ -43,7 +43,7 @@ public:
     void setCategorie(Categorie categorie);
     void setDuree(int duree);
 
-    void setActeurs(vector<Acteur*> acteurs);
+    void setActeurs(vector<Acteur*>& acteurs);
     void setCritiques(vector<Critique*> acteurs);
 
     // Méthodes fonctionnelles
