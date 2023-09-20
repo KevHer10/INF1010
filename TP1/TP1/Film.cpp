@@ -1,97 +1,3 @@
-//#include "Film.h"
-//#include <iostream>
-//#include <iomanip>
-//
-//// TODO: Implémenter les méthodes de la classe Film ici.
-//
-//// Constructeurs et destructeur
-//film::film() { 
-//    film("",0,"",categorie::action,0);
-//}
-//
-//Film::Film(string titre, int anneeDeSortie, string realisateur, Categorie categorie, int duree) {
-//    titre_ = titre;
-//    anneeDeSortie_ = anneeDeSortie;
-//    realisateur_ = realisateur;
-//    categorie_ = categorie;
-//    duree_ = duree;
-//}
-//
-//Film::~Film() { }
-//
-//// Getters
-//string Film::getTitre() const { return titre_; }
-//
-//string Film::getRealisateur() const { return realisateur_; }
-//
-//int Film::getAnneeDeSortie() const { return anneeDeSortie_; }
-//
-//Categorie Film::getCategorie() const { return categorie_; }
-//
-//int Film::getDuree() const { return duree_; }
-////
-//vector<Acteur*> Film::getActeurs() const { return{}; }
-//
-//vector<Critique*> Film::getCritiques() const { return{}; }
-//
-//int Film::getNbActeurs() const { return ; }
-//
-//int Film::getNbCritiques() const { return ; }
-//
-//// Setters
-//void Film::setTitre(string titre) { titre_ = titre; }
-//
-//void Film::setRealisateur(string realisateur) { realisateur_ = realisateur; }
-//
-//void Film::setAnneeDeSortie(int anneeDeSortie) { anneeDeSortie_ = anneeDeSortie; }
-//
-//void Film::setCategorie(Categorie categorie) { categorie_ = categorie; }
-//
-//void Film::setDuree(int duree) { duree_ = duree; }
-//
-//void Film::setActeurs(vector<Acteur*> acteurs) {}
-//    
-//void Film::setCritiques(vector<Critique*> critiquesVec) {}
-//
-//// Méthodes fonctionnelles
-//Acteur* Film::trouverActeur(const string nom) const {
-//    return nullptr;
-//}
-//
-//Critique* Film::trouverCritique(const string nom) const {
-//    return nullptr;
-//}
-//
-//bool Film::isActeurPresent(string nomActeur) const {
-//    return false;
-//}
-//
-//bool Film::isCritiquePresent(string nomCritique) const {
-//    return false;
-//}
-//
-//bool Film::ajouterActeur(string nom, int anneeNaissance, string biographie) {
-//    return false;
-//}
-//
-//bool Film::ajouterCritique(string nom, string commentaire, int note) {
-//    return false;
-//}
-//
-//bool Film::retirerActeur(const string nom) {
-//    return false;
-//}
-//
-//bool Film::retirerCritique(const string nom) {
-//    return false;
-//}
-//
-//float Film::obtenirNoteMoyenne() const {
-//    return 0;
-//}
-//
-//// Méthodes d'affichage
-//void Film::afficher() const { }
 #include "Film.h"
 #include <iostream>
 #include <iomanip>
@@ -179,11 +85,17 @@ bool Film::isCritiquePresent(string nomCritique) const {
 }
 
 bool Film::ajouterActeur(string nom, int anneeNaissance, string biographie) {
-    return false;
+    
+    acteurs_.push_back(new Acteur(nom,anneeNaissance,biographie));
+    
+    return true;
 }
 
 bool Film::ajouterCritique(string nom, string commentaire, int note) {
-    return false;
+    
+    critiques_.push_back(new Critique(nom, commentaire, note));
+
+    return true;
 }
 
 bool Film::retirerActeur(const string nom) {
