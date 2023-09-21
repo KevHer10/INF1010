@@ -5,7 +5,14 @@
 // TODO: Implémenter les méthodes de la classe Film ici.
 
 // Constructeurs et destructeur
-Film::Film() : Film("",0,"",Categorie::ACTION,0) {}
+Film::Film(){
+    titre_ = "";
+    anneeDeSortie_ = 0;
+    realisateur_ = "";
+    categorie_ = Categorie::ACTION;
+    duree_ = 0;
+
+} 
 
 Film::Film(string titre, int anneeDeSortie, string realisateur, Categorie categorie, int duree) {
     titre_ = titre;
@@ -26,7 +33,7 @@ int Film::getAnneeDeSortie() const { return anneeDeSortie_; }
 
 Categorie Film::getCategorie() const { return categorie_; }
 
-int Film::getDuree() const { return 0; }
+int Film::getDuree() const { return duree_; }
 
 vector<Acteur*> Film::getActeurs() const { return {acteurs_}; } //ici
 
@@ -118,9 +125,8 @@ bool Film::retirerActeur(const string nom) {
         if (acteur->getNom() == nom)
             acteur = acteurs_.back();
         acteurs_.pop_back();
-        delete acteurs_.back();
         return true;
-        break;
+        //break;
     }
 
     return false;
@@ -145,8 +151,45 @@ float Film::obtenirNoteMoyenne() const {
     }
     moyenne = moyenne / critiques_.size();
 
-    return 0;
+    return moyenne;
 }
 
 // Méthodes d'affichage
-void Film::afficher() const { }
+void Film::afficher() const {
+    Categorie categorie = getCategorie();
+    
+    cout << getTitre() << "(" << getAnneeDeSortie() << ")" << "de " << getRealisateur() << "\n";
+    cout << "Duree: " << getDuree() << " minutes" << "\n";
+    
+    cout << "Categorie: ";
+    switch (categorie)
+    {
+    case Categorie::ACTION: std::cout << "Action\n";   break;
+    case Categorie::COMEDIE: std::cout << "Comedie\n"; break;
+    case Categorie::DRAME: std::cout << "Drame\n";  break;
+    case Categorie::HORREUR: std::cout << "Horreur\n"; break;
+    }
+
+     cout << "Acteurs:" << "\n";
+
+     for (auto&& acteur : acteurs_)
+         acteur->afficher();
+
+     cout << "Critiques:" << "\n";
+
+     for (auto&& critique : critiques_)
+         critique->afficher();
+
+     cout << "Note moyenne: " << obtenirNoteMoyenne() << "\n";
+
+
+
+
+
+
+
+
+
+
+
+}

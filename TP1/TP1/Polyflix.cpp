@@ -80,13 +80,45 @@ int Polyflix::getNombreFilmsParCategorie(Categorie categorie) const {
 }
 
 Film* Polyflix::obtenirFilmAvecLaPlusHauteNote() const { 
-	
-	
-	return nullptr; }
+	int notePlusHaute = 0;
+	Film* FilmAvecLaPlusHauteNote = nullptr;
+	for (auto&& film : films_) {
+		if (film->obtenirNoteMoyenne() > notePlusHaute){
+			notePlusHaute = film->obtenirNoteMoyenne();
+			FilmAvecLaPlusHauteNote = film;
+		}
+	}
 
-Film* Polyflix::obtenirFilmAvecLaPlusBasseNote() const { return nullptr; }
+	return FilmAvecLaPlusHauteNote;
+}
 
-Film* Polyflix::obtenirFilmPlusRecent() const { return nullptr; }
+Film* Polyflix::obtenirFilmAvecLaPlusBasseNote() const { 
+	
+	int notePlusBasse = 10;
+	Film* FilmAvecLaPlusBasseNote = nullptr;
+	for (auto&& film : films_) {
+		if (film->obtenirNoteMoyenne() < notePlusBasse) {
+			notePlusBasse = film->obtenirNoteMoyenne();
+			FilmAvecLaPlusBasseNote = film;
+		}
+	}
+
+	return FilmAvecLaPlusBasseNote;
+}
+
+Film* Polyflix::obtenirFilmPlusRecent() const { 
+	int anneDeSortie = 0;
+	Film* FilmPlusRecent = nullptr;
+	for (auto&& film : films_) {
+		if (film->getAnneeDeSortie() > anneDeSortie) {
+			anneDeSortie = film->getAnneeDeSortie();
+			FilmPlusRecent = film;
+		}
+	}
+
+	return FilmPlusRecent;
+	
+}
 
 // Méthodes pour l'affichage
 void Polyflix::afficherListeFilms() const { }
