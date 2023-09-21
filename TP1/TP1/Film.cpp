@@ -158,7 +158,7 @@ float Film::obtenirNoteMoyenne() const {
 void Film::afficher() const {
     Categorie categorie = getCategorie();
     
-    cout << getTitre() << "(" << getAnneeDeSortie() << ")" << "de " << getRealisateur() << "\n";
+    cout << getTitre() << " (" << getAnneeDeSortie() << ") " << "de " << getRealisateur() << "\n";
     cout << "Duree: " << getDuree() << " minutes" << "\n";
     
     cout << "Categorie: ";

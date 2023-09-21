@@ -121,6 +121,30 @@ Film* Polyflix::obtenirFilmPlusRecent() const {
 }
 
 // Méthodes pour l'affichage
-void Polyflix::afficherListeFilms() const { }
+void Polyflix::afficherListeFilms() const {
 
-void Polyflix::afficherFilmsParCategorie(Categorie categorie) const { }
+	cout << "Polyflix vous presente les films suivants:" << "\n";
+	cout << SEPARATEUR;
+
+	for (auto&& film : films_) {
+		film->afficher();
+		cout << SEPARATEUR;
+	}
+	
+
+}
+
+void Polyflix::afficherFilmsParCategorie(Categorie categorie) const {
+	vector<Film*> vecFilmParCategorie = listerFilmsParCategorie(categorie);
+
+
+	cout << "Pour la categorie selectionne, Polyflix vous presente les films suivants:" << "\n";
+	cout << SEPARATEUR;
+
+	for (auto&& film : vecFilmParCategorie) {
+		film->afficher();
+		cout << SEPARATEUR;
+	}
+
+
+}
