@@ -1,3 +1,10 @@
+/*
+Fichier: main.cpp
+Auteur(s): Kevin Alexander Bejarano Hernandez et Alireza Jafari
+Date de creation: 2023-09-14
+Date de modification: 2023-09-21
+Description: Main.
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -71,6 +78,9 @@ int main() {
 
     bool connecte = false;
     int choix;
+    Categorie categorie;
+    string nomUtilisateur = "";
+    string motDePasse = "";
 
     do {
         afficherMenu();
@@ -84,22 +94,140 @@ int main() {
             break;
         }
         case 2: {
-            cout << "TODO" << endl;
+            
+            string nomUtilisateur="";
+            string motDePasse = "";
+            
+            cout << "\033[32m2. Creer un compte\033[0m" << endl << endl;
+
+            cout << "\033[33mEntrez un nom d'utilisateur pour creer un compte: \033[0m" << endl;
+            cout << "\033[32m>>\033[0m";
+            cin >> nomUtilisateur;
+            polyflix.setUtilisateur(nomUtilisateur);
+
+            cout << endl;
+            cout << "\033[33mEntrez un mot de passe: \033[0m" << endl;
+            cout << "\033[32m>>\033[0m";
+            cin >> motDePasse;
+            polyflix.setMotDePasse(motDePasse);
+
+            cout << "\033[33mVous avez bien cree un compte. \033[0m" << endl;
+
             cout << SEPARATEUR_2;
             break;
         }
         case 3: {
-            cout << "TODO" << endl;
+            cout << "\033[32m Se connecter\033[0m" << endl << endl;
+            cout << "\033[33mEntrez nom d'utilisateur pour connecter: \033[0m" << endl;
+            cout << "\033[32m>>\033[0m";
+            cin >> nomUtilisateur;
+            
+
+            cout << endl;
+            cout << "\033[33mEntrez votre mot de passe: \033[0m" << endl;
+            cout << "\033[32m>>\033[0m";
+            cin >> motDePasse;
+           
+            connecte = polyflix.connecter(nomUtilisateur, motDePasse);
+            if(connecte == 1)
+                cout << "\033[33mBienvenu: \033[0m" << nomUtilisateur << endl;
+            else
+                cout << "\033[33mEchec de connexion\033[0m"  << endl;
+
+
             cout << SEPARATEUR_2;
             break;
         }
         case 4: {
-            cout << "TODO" << endl;
+            int choix = 0;
+            
+            cout << "\033[32m4. Choissisez comment vous voulez affficher las liste de films: \033[0m" << endl;
+            cout << "\033[32m1. Tous\033[0m" << endl;
+            cout << "\033[32m2. Par categorie\033[0m" << endl;
+            cout << "\033[32m>>\033[0m";
+            cin >> choix;
+            if (choix == 1) {
+                polyflix.afficherListeFilms();
+                cout << endl;
+            }
+            else if (choix == 2) {
+                switch (categorie)
+                {
+                case Categorie::ACTION:
+                    cout << "\033[33mVous avez choisi Action : \033[0m" << endl;
+                    polyflix.afficherFilmsParCategorie(categorie);
+                    categorie = {};
+                    cout << endl;
+                    break;
+                case Categorie::COMEDIE:
+                    cout << "\033[33mVous avez choisi Comedie : \033[0m" << endl;
+                    polyflix.afficherFilmsParCategorie(categorie);
+                    categorie = {};
+                    cout << endl;
+                    break;
+                case Categorie::DRAME:
+                    cout << "\033[33mVous avez choisi Drame : \033[0m" << endl;
+                    polyflix.afficherFilmsParCategorie(categorie);
+                    categorie = {};
+                    cout << endl;
+                    break;
+                case Categorie::HORREUR:
+                    cout << "\033[33mVous avez choisi Horreur : \033[0m" << endl;
+                    polyflix.afficherFilmsParCategorie(categorie);
+                    categorie = {};
+                    cout << endl;
+                    break;
+                default:
+                    cout << "\033[33mMauvais choix. Veuillez reesayer.\033[0m" << endl;
+                
+                }
+
+            }
+            else
+                cout << "\033[33mMauvais choix. Veuillez reesayer.\033[0m" << endl;
+
             cout << SEPARATEUR_2;
             break;
         }
         case 5: {
-            cout << "TODO" << endl;
+            int choixCategorie;
+
+            cout << "\033[32mSelectionner une categorie:\033[0m" << endl << endl;
+            cout << "\033[32m1. Tous\033[0m" << endl;
+            cout << "\033[32m2. Action\033[0m" << endl;
+            cout << "\033[32m3. Comedie\033[0m" << endl;
+            cout << "\033[32m4. Drame\033[0m" << endl;
+            cout << "\033[32m5. Horreur\033[0m" << endl;
+
+            cout << "\033[33mEntrez votre choix : \033[0m";
+            cin >> choixCategorie;
+           
+            
+            switch (choixCategorie)
+            {
+            case 1:
+                cout << "\033[33mVous avez choisi Tous : \033[0m" << endl;
+                break;
+            case 2:
+                cout << "\033[33mVous avez choisi Action : \033[0m" << endl;
+                categorie = Categorie::ACTION;
+                break;
+            case 3:
+                cout << "\033[33mVous avez choisi Comedie : \033[0m" << endl;
+                categorie = Categorie::COMEDIE;
+                break;
+            case 4:
+                cout << "\033[33mVous avez choisi Drame : \033[0m" << endl;
+                categorie = Categorie::DRAME;
+                break;
+            case 5:
+                cout << "\033[33mVous avez choisi Horreur : \033[0m" << endl;
+                categorie = Categorie::HORREUR;
+                break;
+            default:
+                cout << "\033[33mChoix invalide, essayez a nouveau : \033[0m" << endl;
+            }
+            
             cout << SEPARATEUR_2;
             break;
         }
