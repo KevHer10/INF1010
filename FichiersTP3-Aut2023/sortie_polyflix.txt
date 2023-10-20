@@ -1,0 +1,70 @@
+Polyflix Platform
+======================
+Films:
+----------------------
+Django Unchained, 2012, Drame
+Casting: 
+------------------------------------------------
+Nom: Leonardo DiCaprio
+Année de naissance: 1974
+Biographie: Leonardo DiCaprio is an American actor and producer. He is known for his roles in films like 'Titanic', 'Inception', and 'The Revenant'.
+Agence: LBI Entertainment
+
+------------------------------------------------
+Nom: Quentin Tarantino
+Année de naissance: 1963
+Biographie: Quentin Jerome Tarantino is an American film director, screenwriter, producer, and actor. He is best known for his movies like 'Pulp Fiction', 'Kill Bill', and 'Django Unchained'.
+Studio associé: A Band Apart
+
+Critiques: 
+------------------------------------------------
+Kevin: Super film! - Note: 5
+
+------------------------------------------------
+Ryan: Je n'ai pas compris la fin D: - Note: 2
+
+Duree: 165 minutes
+
+The Mummy, 1999, Action
+Casting: 
+------------------------------------------------
+Nom: Brendan Fraser
+Année de naissance: 1968
+Biographie: Brendan Fraser is a Canadian-American actor. He is best known for his role as 'Rick O'Connell' in 'The Mummy' series.
+Agence: CAA Talent Agency
+
+------------------------------------------------
+Nom: Rob Cohen
+Année de naissance: 1949
+Biographie: Rob Cohen is an American director, known for his work on movies such as 'The Fast and the Furious' and 'xXx'.
+Studio associé: FGG Productions
+
+Critiques: 
+------------------------------------------------
+Kevin: Super film! - Note: 5
+
+Duree: 125 minutes
+
+
+Series:
+----------------------
+Better Call Saul, 2015, Drame
+Casting: 
+------------------------------------------------
+Nom: Michael Mando
+Année de naissance: 1981
+Biographie: Michael Mando is a Canadian actor known for his role as Nacho Varga in 'Better Call Saul' and Vaas Montenegro in the video game 'Far Cry 3'.
+Agence: Unknown
+
+------------------------------------------------
+Nom: Vince Gilligan
+Année de naissance: 1967
+Biographie: Vince Gilligan is an American writer, producer, and director, best known for creating the television series 'Breaking Bad' and its spin-off 'Better Call Saul'.
+Studio associé: Bella Donna Productions
+
+Critiques: 
+------------------------------------------------
+Alex: Un spin-off à la hauteur de Breaking Bad! - Note: 4
+
+Nombre d'episodes: 10
+
