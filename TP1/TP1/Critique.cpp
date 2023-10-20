@@ -8,7 +8,7 @@ Description: Implementation de la classe Critique.
 #include "Critique.h"
 
 // TODO: Implémenter les méthodes de la classe Critique ici.
-
+	
 // Constructeurs
 
 /// @brief Constructeur par défaut de la classe Critique.

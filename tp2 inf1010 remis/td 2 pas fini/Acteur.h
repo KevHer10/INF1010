@@ -11,6 +11,8 @@ public:
     // Constructeurs
     Acteur();
     Acteur(const string nom, int anneeNaissance, const string biographie);
+    Acteur(const Acteur& acteur);
+    Acteur& operator=(const Acteur& acteur);
 
     // Getters
     string getNom() const;
@@ -22,8 +24,12 @@ public:
     void setAnneeNaissance(int anneeNaissance);
     void setBiographie(const string bio);
 
+    // Opérateurs
+    bool operator==(const Acteur& acteur) const;
+    bool operator!=(const Acteur& acteur) const;
+
     // Méthode d'affichage
-    void afficher() const;
+    friend ostream& operator<<(ostream& os, const Acteur& acteur);
 
 private:
     string nom_;

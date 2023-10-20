@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8e4b6ecf-53d6-4e83-8cc0-f3c814b13090}</ProjectGuid>
-    <RootNamespace>TP2</RootNamespace>
+    <ProjectGuid>{27e45935-ade9-467b-86bc-03026b183776}</ProjectGuid>
+    <RootNamespace>TP3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,24 +128,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Acteur.cpp" />
+    <ClCompile Include="Cast.cpp" />
     <ClCompile Include="Critique.cpp" />
     <ClCompile Include="Film.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Media.cpp" />
     <ClCompile Include="Polyflix.cpp" />
+    <ClCompile Include="Realisateur.cpp" />
+    <ClCompile Include="Serie.cpp" />
     <ClCompile Include="Utilisateur.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acteur.h" />
+    <ClInclude Include="Cast.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Critique.h" />
+    <ClInclude Include="Evaluation.h" />
     <ClInclude Include="Film.h" />
+    <ClInclude Include="Media.h" />
     <ClInclude Include="Polyflix.h" />
+    <ClInclude Include="Realisateur.h" />
+    <ClInclude Include="Serie.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="Utilisateur.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="sortie_afficherListeFilms.txt" />
-    <Text Include="sortie_testAffichageFilm.txt" />
+    <Text Include="sortie_polyflix.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

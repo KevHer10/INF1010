@@ -1,10 +1,3 @@
-/*
-Fichier: Polyflix.h
-Auteur(s): Kevin Alexander Bejarano Hernandez et Alireza Jafari
-Date de creation: 2023-09-14
-Date de modification: 2023-09-21
-Description: Description de la classe Polyflix.
-*/
 #pragma once
 
 #include "Film.h"

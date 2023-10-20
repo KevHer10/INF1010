@@ -100,7 +100,7 @@ void Film::setDuree(int duree) { duree_ = duree; }
 
 /// @brief Modifie les acteurs qui sont dans le vecteur.
 /// @param acteurs: Vecteur d'acteurs   
-void Film::setActeurs(vector<Acteur*>& acteurs) {
+void Film::setActeurs(vector<Acteur*> acteurs) {
     for (auto& acteur : acteurs_) {
         delete acteur;
         acteur = nullptr;
@@ -256,15 +256,6 @@ void Film::afficher() const {
          critique->afficher();
 
      cout << "Note moyenne: " << obtenirNoteMoyenne() << "\n";
-
-
-
-
-
-
-
-
-
 
 
 }

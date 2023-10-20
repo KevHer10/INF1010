@@ -8,7 +8,9 @@ class Critique {
 public:
     // Constructeurs
     Critique();
-    Critique(string auteur, string commentaire, int note);
+    Critique(std::string auteur, std::string commentaire, int note);
+    Critique(const Critique& critique);
+    Critique& operator=(const Critique& critique);
 
     // Getters
     string getAuteur() const;
@@ -20,8 +22,12 @@ public:
     void setCommentaire(string commentaire);
     void setNote(int note);
 
+    // Opérateurs
+    bool operator==(const Critique& critique) const;
+    bool operator!=(const Critique& critique) const;
+
     // Méthode d'affichage
-    void afficher() const;
+    friend ostream& operator<<(ostream& os, const Critique& critique);
 
 private:
     string auteur_;

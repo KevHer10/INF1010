@@ -154,7 +154,7 @@ double testFilm() {
         new Acteur(NOM_1, ANNEE_NAISSANCE_1, BIO_1),
         new Acteur(NOM_3, ANNEE_NAISSANCE_3, BIO_3),
     };
-    film2.setTitre("SAlut");
+
     // Définir les acteurs pour le film
     film2.setActeurs(acteurs);
 

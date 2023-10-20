@@ -17,11 +17,11 @@ enum class Categorie {
 
 class Film {
 public:
-    // Constructeurs et destructeur
+    // Constructeurs
     Film();
     Film(string titre, int anneeDeSortie, string realisateur, Categorie categorie, int duree);
-
-    ~Film();
+    Film(const Film& film);
+    Film& operator=(const Film& film);
 
     // Getters
     string getTitre() const;
@@ -30,8 +30,8 @@ public:
     Categorie getCategorie() const;
     int getDuree() const;
 
-    vector<Acteur*> getActeurs() const;
-    vector<Critique*> getCritiques() const;
+    vector<shared_ptr<Acteur>> getActeurs() const;
+    vector<unique_ptr<Critique>> getCritiques() const;
 
     int getNbActeurs() const;
     int getNbCritiques() const;
@@ -43,26 +43,30 @@ public:
     void setCategorie(Categorie categorie);
     void setDuree(int duree);
 
-    void setActeurs(vector<Acteur*> acteurs);
+    void setActeurs(vector<shared_ptr<Acteur>> acteurs);
     void setCritiques(vector<Critique*> acteurs);
 
     // Méthodes fonctionnelles
-    Acteur* trouverActeur(const string nom) const;
-    Critique* trouverCritique(const string auteur) const;
+    shared_ptr<Acteur> trouverActeur(const string nom) const;
+    unique_ptr<Critique> trouverCritique(const string auteur) const;
 
     bool isActeurPresent(string nomActeur) const;
     bool isCritiquePresent(string auteur) const;
 
-    bool ajouterActeur(string nom, int anneeNaissance, string biographie);
-    bool ajouterCritique(string auteur, string commentaire, int note);
-
-    bool retirerActeur(const string nom);
-    bool retirerCritique(const string auteur);
-
     float obtenirNoteMoyenne() const;
 
-    // Méthodes d'affichage
-    void afficher() const;
+    // Opérateurs
+    bool operator+=(shared_ptr<Acteur>& acteur);
+    bool operator+=(Critique* critique);
+
+    bool operator==(const Film& film) const;
+    bool operator!=(const Film& film) const;
+
+    bool operator-=(shared_ptr<Acteur>& acteur);
+    bool operator-=(Critique* critique);
+
+    // Méthode d'affichage
+    friend ostream& operator<<(ostream& os, const Film& film);
 
 private:
     string titre_;
@@ -71,6 +75,6 @@ private:
     Categorie categorie_;
     int duree_;
 
-    vector<Acteur*> acteurs_;
-    vector<Critique*> critiques_;
+    vector<shared_ptr<Acteur>> acteurs_;
+    vector<unique_ptr<Critique>> critiques_;
 };
