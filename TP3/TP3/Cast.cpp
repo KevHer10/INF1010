@@ -1,4 +1,5 @@
 #include "Cast.h"
+//Salut
 
 // Constructeurs
 Cast::Cast()
