@@ -14,11 +14,31 @@ Cast::Cast(const Cast& cast)
 Cast::~Cast() {}  // TODO (si necessaire)
 
 // Operators
-bool Cast::operator==(const Cast& cast) const { return false; }  // TODO
+bool Cast::operator==(const Cast& cast) const { 
+    if (nom_ == cast.nom_
+        && anneeNaissance_ == cast.anneeNaissance_
+        && biographie_ == cast.biographie_)
+        return true;
 
-bool Cast::operator!=(const Cast& cast) const { return false; }  // TODO
+    return false;
+}  // TODO
+
+bool Cast::operator!=(const Cast& cast) const { 
+    
+    if (nom_ != cast.nom_
+        || anneeNaissance_ != cast.anneeNaissance_
+        || biographie_ != cast.biographie_)
+        return true;
+    
+    return false;
+}  // TODO
 
 // Methodes d'affichage
-void Cast::afficher(ostream& os) const { }  // TODO
+void Cast::afficher(ostream& os) const {
+    os << nom_ << anneeNaissance_ << biographie_;
+}  // TODO
 
-ostream& operator<<(ostream& os, const Cast& cast) { return os; }  // TODO
+ostream& operator<<(ostream& os, const Cast& cast) { 
+    cast.afficher(os);
+    return os;
+}  // TODO
