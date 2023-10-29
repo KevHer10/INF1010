@@ -10,6 +10,8 @@ void Utilisateur::setNomUtilisateur(const string& nom) { nomUtilisateur = nom; }
 
 void Utilisateur::setMotDePasse(const string& mdp) { motDePasse = mdp; }
 
-void Utilisateur::ajouterMedia(shared_ptr<Media> media) { }  // TODO
+void Utilisateur::ajouterMedia(shared_ptr<Media> media) {
+	mediaVus.push_back(media);
+}  // TODO
 
 bool Utilisateur::verifierConnexion(const string& mdp) const { return motDePasse == mdp; }

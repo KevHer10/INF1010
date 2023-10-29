@@ -5,16 +5,17 @@ Acteur::Acteur() :Cast(), agence_("") {} //TODO
 
 Acteur::Acteur(const string& nom, int anneeNaissance, const string& biographie, int salaire, const string& agence): Cast(nom, anneeNaissance, biographie, salaire), agence_(agence) {}  //TODO
 
-Acteur::Acteur(const Acteur& acteur) : Cast(acteur.nom_, acteur.anneeNaissance_, acteur.biographie_, acteur.salaire_), agence_(acteur.agence_), rolesJoues_(acteur.rolesJoues_) {}  //TODO.
+Acteur::Acteur(const Acteur& acteur) : Cast(acteur), agence_(acteur.agence_), rolesJoues_(acteur.rolesJoues_) {}  //TODO.
 
 // Methodes virtuelles surchargees
 bool Acteur::accepterRole(const pair<int, Cast*>& role) const { 
 	
-	if (role.first >= salaire_ && dynamic_cast<const Acteur*>(role.second) != nullptr)
+	const Acteur* acteur{};
+	if (role.first >= salaire_ && dynamic_cast<const Acteur*>(role.second) == acteur)
 		return true;
 
 	return false;
-}  //TODO
+}  //TODO 
 
 ClasseCelebrite Acteur::calculerPopularite() const { 
 	int roles = static_cast<int>(rolesJoues_.size());

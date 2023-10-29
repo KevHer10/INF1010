@@ -296,7 +296,9 @@ double testAffichage() {
 
     auto acteur2 = make_shared<Acteur>(NOM_ACTEUR_B, ANNEE_NAISSANCE_ACTEUR_B, BIO_ACTEUR_B, SALAIRE_ACTEUR_B, AGENCE_ACTEUR_B);
     auto realisateur2 = make_shared<Realisateur>(NOM_REALISATEUR_B, ANNEE_NAISSANCE_REALISATEUR_B, BIO_REALISATEUR_B, SALAIRE_REALISATEUR_B, STUDIO_B);
-
+    
+    realisateur2->ajouterPrix(2001, "Academy Award"); realisateur2->ajouterPrix(1998, "Cesar"); //ligne ajoutee
+   
     *film2 += acteur2;
     *film2 += realisateur2;
     *film2 += critique1;

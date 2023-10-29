@@ -2,17 +2,36 @@
 
 Polyflix::Polyflix() {}
 
-Polyflix::Polyflix(const Polyflix& polyflix) { }  // TODO
+Polyflix::Polyflix(const Polyflix& polyflix) : medias_(polyflix.medias_), utilisateurs_(polyflix.utilisateurs_) {}  // TODO
 
-Utilisateur* Polyflix::chercherUtilisateur(string nomUtilisateur) { return nullptr; }  // TODO
+Utilisateur* Polyflix::chercherUtilisateur(string nomUtilisateur) { 
+	Utilisateur* utilisateurTrouve;
+	for (auto& utilisateur : utilisateurs_) {
+		if (utilisateur->getNomUtilisateur() == nomUtilisateur) {
+			utilisateurTrouve = utilisateur.get();
+			return utilisateurTrouve;
+		}
+	}
+	return nullptr;
+}  // TODO
 
-int Polyflix::getNombreUtilisateurs() const { return 0; }  // TODO
+int Polyflix::getNombreUtilisateurs() const { 
+	return static_cast<int>(utilisateurs_.size());
+}  // TODO
 
-bool Polyflix::utilisateurExiste(string nomUtilisateur) { return false; }  // TODO
+bool Polyflix::utilisateurExiste(string nomUtilisateur) { 
+	if (chercherUtilisateur(nomUtilisateur) != nullptr)
+		return true;
+	return false;
+}  // TODO
 
-bool Polyflix::connecterUtilisateur(string nomUtilisateur, string motDePasse) { return false; }  // TODO
+bool Polyflix::connecterUtilisateur(string nomUtilisateur, string motDePasse) { 
+	
+	return utilisateurExiste(nomUtilisateur) && chercherUtilisateur(nomUtilisateur)->verifierConnexion(motDePasse);
+}  // TODO
 
-bool Polyflix::modifierMotDePasse(string nomUtilisateur, string motDePasse) { return false; }  // TODO
+bool Polyflix::modifierMotDePasse(string nomUtilisateur, string motDePasse) { 
+	return false; }  // TODO
 
 bool Polyflix::visionnerMedia(string nomUtilisateur, string titreMedia) { return false; }  // TODO
 
