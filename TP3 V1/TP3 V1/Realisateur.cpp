@@ -20,7 +20,7 @@ void Realisateur::ajouterPrix(int annee, const string& nomPrix) {
 
 // Methodes virtuelles surchargees
 bool Realisateur::accepterRole(const pair<int, Cast*>& role) const { 
-	const Realisateur* realisateur;
+	const Realisateur* realisateur{};
 	if (role.first >= salaire_ && dynamic_cast<const Realisateur*>(role.second) == realisateur)
 		return true;
 

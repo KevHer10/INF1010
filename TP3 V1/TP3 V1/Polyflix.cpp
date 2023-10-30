@@ -31,30 +31,106 @@ bool Polyflix::connecterUtilisateur(string nomUtilisateur, string motDePasse) {
 }  // TODO
 
 bool Polyflix::modifierMotDePasse(string nomUtilisateur, string motDePasse) { 
-	return false; }  // TODO
+	if (utilisateurExiste(nomUtilisateur)) {
+		chercherUtilisateur(nomUtilisateur)->setMotDePasse(motDePasse);
+		return true;
+	}
 
-bool Polyflix::visionnerMedia(string nomUtilisateur, string titreMedia) { return false; }  // TODO
+	return false;
+}  // TODO
 
-int Polyflix::getNombreTotalFilms() const { return 0; }  // TODO
+bool Polyflix::visionnerMedia(string nomUtilisateur, string titreMedia) { 
+	
+	if (utilisateurExiste(nomUtilisateur)) {
+		for (auto& media : medias_) {
+			if (titreMedia == media->getTitre()) {
+				chercherUtilisateur(nomUtilisateur)->ajouterMedia(media);
+					return true;
+			}
+		}
+	}
+	return false;
+}  // TODO
 
-int Polyflix::getNombreTotalSeries() const { return 0; }  // TODO
+int Polyflix::getNombreTotalFilms() const { 
+	const Film* film{};
+	int nombreTotalFilm=0;
+	for (auto& media : medias_) {
+		if (dynamic_cast<const Film*>(media.get()) != nullptr) {
+			nombreTotalFilm++;
+		}
+	}
+	return nombreTotalFilm;
+}  // TODO
 
-int Polyflix::getNombreTotalMedia() const { return 0; }  // TODO
+int Polyflix::getNombreTotalSeries() const { 
+	const Serie* serie{};
+	int nbrTotaleSeries=0;
+	for (auto& media : medias_) {
+		if (dynamic_cast<const Serie*>(media.get()) != nullptr) {
+			nbrTotaleSeries++;
+		}
+	}
 
-Media* Polyflix::chercherMedia(string titreMedia) const { return nullptr; }  // TODO
+	return nbrTotaleSeries;
+}  // TODO
 
-vector<Film*> Polyflix::listerTousLesFilms() const { return {}; }  // TODO
+int Polyflix::getNombreTotalMedia() const { return static_cast<int>(medias_.size()); }  // TODO
 
-vector<Serie*> Polyflix::listerTousLesSeries() const { return {}; }  // TODO
+Media* Polyflix::chercherMedia(string titreMedia) const { 
+	for (auto& media : medias_) {
+		if (media->getTitre()==titreMedia) {
+			return media.get();
+		}
+	}
+	return nullptr;
+}  // TODO
 
-vector<shared_ptr<Media>> Polyflix::listerMediaVisionnesParUtilisateur(string nomUtilisateur) { return {}; }  // TODO
+vector<Film*> Polyflix::listerTousLesFilms() const { 
+	vector<Film*> films;
+		
+	for (auto& media : medias_) {
+		if (dynamic_cast<const Film*>(media.get()) != nullptr) {
+			;
+			films.push_back(dynamic_cast<Film*>(media.get()));
+		}
+	}
+
+	return films;
+}  // TODO
+
+vector<Serie*> Polyflix::listerTousLesSeries() const {
+	vector<Serie*> series;
+
+	for (auto& media : medias_) {
+		if (dynamic_cast<const Serie*>(media.get()) != nullptr) {
+			;
+			series.push_back(dynamic_cast<Serie*>(media.get()));
+		}
+	}
+	return series;
+}  // TODO
+
+vector<shared_ptr<Media>> Polyflix::listerMediaVisionnesParUtilisateur(string nomUtilisateur) { 
+	
+	return chercherUtilisateur(nomUtilisateur)->getMediaVus();
+}  // TODO
 
 vector<Film*> Polyflix::listerFilmsParCategorie(Categorie categorie) const { return {}; }  // TODO
 
 vector<Serie*> Polyflix::listerSeriesParCategorie(Categorie categorie) const { return {}; }  // TODO
 
-bool Polyflix::operator+=(Utilisateur utilisateur) { return false; }  // TODO
+bool Polyflix::operator+=(Utilisateur utilisateur) { 
+	if (!utilisateurExiste(utilisateur.getNomUtilisateur()))
+		utilisateurs_.push_back(make_shared<Utilisateur>(utilisateur));
+	
+	return true;
+}  // TODO
 
-bool Polyflix::operator+=(Media* media) { return false; }  // TODO
+bool Polyflix::operator+=(Media* media) { 
+	medias_.emplace_back(media);
+
+	return false;
+}  // TODO
 
 ostream& operator<<(ostream& os, const Polyflix& polyflix) { return os; }  // TODO
