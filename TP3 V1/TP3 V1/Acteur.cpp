@@ -70,5 +70,5 @@ void Acteur::afficherRoles() const {
 /// @param os Le flux de sortie où afficher les informations.
 void Acteur::afficher(ostream& os) const {
 	Cast::afficher(os);
-	cout << "Agence: " << agence_<<"\n\n"; //afficher roles nest pas dans le test??????
+	cout << "Agence: " << agence_<<"\n\n"; 
 } //TODO

@@ -161,23 +161,105 @@ int main() {
             break;
         }
         case 4: {
-            // TODO: Afficher les medias
+            cout << "\033[32m4. Afficher les medias: \033[0m" << endl;
+            cout << polyflix;
+            cout << SEPARATEUR_2;
             break;
         }
         case 5: {
-            // TODO: Afficher les films
+            cout << "\033[32m4. Afficher les films: \033[0m" << endl << endl;
+            cout << "\033[32mVoici la Liste de films: \033[0m" << endl;
+            for (auto& film : polyflix.listerTousLesFilms())
+                cout << *film;
+            cout << SEPARATEUR_2;
             break;
         }
         case 6: {
-            // TODO: Afficher les series
+            cout << "\033[32m4. Afficher les series: \033[0m" << endl << endl;
+            cout << "\033[32mVoici la Liste de series: \033[0m" << endl;
+            for (auto& serie : polyflix.listerTousLesSeries())
+                cout << *serie;
+            cout << SEPARATEUR_2;
             break;
         }
         case 7: {
-            // TODO: Afficher les films d'une categorie
+            string categorieFilm = "";
+            cout << "\033[32m4. Choissisez une categorie de films: \033[0m" << endl;
+            cin >> categorieFilm;
+
+
+            switch (stringToCategorie(categorieFilm))
+            {
+            case Categorie::ACTION:
+                cout << "\033[33mVous avez choisi Action : \033[0m" << endl;
+                for (auto& film : polyflix.listerFilmsParCategorie(stringToCategorie(categorieFilm)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::COMEDIE:
+                cout << "\033[33mVous avez choisi Comedie : \033[0m" << endl;
+                for (auto& film : polyflix.listerFilmsParCategorie(stringToCategorie(categorieFilm)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::DRAME:
+                cout << "\033[33mVous avez choisi Drame : \033[0m" << endl;
+                for (auto& film : polyflix.listerFilmsParCategorie(stringToCategorie(categorieFilm)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::HORREUR:
+                cout << "\033[33mVous avez choisi Horreur : \033[0m" << endl;
+                for (auto& film : polyflix.listerFilmsParCategorie(stringToCategorie(categorieFilm)))
+                    cout << *film;
+                cout << endl;
+                break;
+            default:
+                cout << "\033[33mMauvais choix. Veuillez reesayer.\033[0m" << endl;
+
+            }
+
+            cout << SEPARATEUR_2;
             break;
         }
         case 8: {
-            // TODO: Afficher les series d'une categorie
+            string categorieSerie = "";
+            cout << "\033[32m4. Choissisez une categorie de series: \033[0m" << endl;
+            cin >> categorieSerie;
+
+
+            switch (stringToCategorie(categorieSerie))
+            {
+            case Categorie::ACTION:
+                cout << "\033[33mVous avez choisi Action : \033[0m" << endl;
+                for (auto& film : polyflix.listerSeriesParCategorie(stringToCategorie(categorieSerie)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::COMEDIE:
+                cout << "\033[33mVous avez choisi Comedie : \033[0m" << endl;
+                for (auto& film : polyflix.listerSeriesParCategorie(stringToCategorie(categorieSerie)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::DRAME:
+                cout << "\033[33mVous avez choisi Drame : \033[0m" << endl;
+                for (auto& film : polyflix.listerSeriesParCategorie(stringToCategorie(categorieSerie)))
+                    cout << *film;
+                cout << endl;
+                break;
+            case Categorie::HORREUR:
+                cout << "\033[33mVous avez choisi Horreur : \033[0m" << endl;
+                for (auto& film : polyflix.listerSeriesParCategorie(stringToCategorie(categorieSerie)))
+                    cout << *film;
+                cout << endl;
+                break;
+            default:
+                cout << "\033[33mMauvais choix. Veuillez reesayer.\033[0m" << endl;
+
+            }
+
+            cout << SEPARATEUR_2;
             break;
         }
         case 9: {
