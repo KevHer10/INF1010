@@ -1,3 +1,11 @@
+/*
+Fichier: Utilisateur.cpp
+Auteur(s): Kevin Alexander Bejarano Hernandez
+Date de creation: 2023-10-25
+Date de modification: 2023-10-30
+Description: Implementation de la classe Utilisateur.
+*/
+
 #include "Utilisateur.h"
 
 /// @brief Constructeur de la classe Utilisateur avec paramètres.

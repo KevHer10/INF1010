@@ -1,3 +1,10 @@
+/*
+Fichier: main.cpp
+Auteur(s): Kevin Alexander Bejarano Hernandez
+Date de creation: 2023-10-25
+Date de modification: 2023-10-30
+Description: Main.
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>

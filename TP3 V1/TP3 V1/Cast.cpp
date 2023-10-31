@@ -1,3 +1,10 @@
+/*
+Fichier: Cast.cpp
+Auteur(s): Kevin Alexander Bejarano Hernandez
+Date de creation: 2023-10-25
+Date de modification: 2023-10-30
+Description: Implementation de la classe Cast.
+*/
 #include "Cast.h"
 
 // Constructeurs
