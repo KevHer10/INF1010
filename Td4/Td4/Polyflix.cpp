@@ -26,12 +26,23 @@ Utilisateur* Polyflix::chercherUtilisateur(string nomUtilisateur) {
 
 // TODO
 Liste<Media> Polyflix::listersi(const function<bool(Media media)>& critere) const {
-    return {};
+  /* Liste<Media> tableauRetourne;
+
+   for (auto& media : medias_)
+       if (critere(*media) == true)
+           tableauRetourne += *media;
+   
+    return tableauRetourne;*/
+    return{};
+        
 }
 
 
 // TODO
 Liste<Media> Polyflix::obtenirNMeilleursMedias(int n) {
+    //Liste<Media> MeilleursNotes;
+    //trierMedias();
+
     return {};
 }
 
@@ -70,4 +81,5 @@ ostream& operator<<(ostream& os, const Polyflix& polyflix) {
 
 // TODO
 void Polyflix::trierMedias() {
+    sort(medias_.begin(), medias_.end(), FoncteurComparerMedia());
 }
