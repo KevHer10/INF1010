@@ -3,16 +3,25 @@
 Polyflix::Polyflix() {}
 
 // TODO
-Polyflix::Polyflix(const Polyflix& polyflix) {}
+Polyflix::Polyflix(const Polyflix& polyflix) {
+
+    medias_ = polyflix.medias_;
+    utilisateurs_ = polyflix.utilisateurs_;
+    historique_ = polyflix.historique_;
+}
 
 // TODO
 int Polyflix::getNombreUtilisateurs() const {
-    return 0;
+    return utilisateurs_.obtenirNbElements();
 }
 
 // TODO : Utiliser une methode de la librairie Algorithm
 Utilisateur* Polyflix::chercherUtilisateur(string nomUtilisateur) {
-    return nullptr;
+    
+    auto iterateur = find_if(utilisateurs_.begin(), utilisateurs_.end(), FoncteurRechercheNomUtilisateur(nomUtilisateur));
+    if (iterateur != nullptr)
+        return iterateur->get();
+    
 }
 
 // TODO

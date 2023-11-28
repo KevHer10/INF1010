@@ -10,26 +10,26 @@ const int CAPACITE_DEFAUT = 25;
 template <typename T>
 class Liste {
 public:
-    Liste(): nElements_(0), elements_(make_unique<shared_ptr<T>[CAPACITE_DEFAUT]>){}
+    Liste(): nElements_(0), elements_(make_unique<shared_ptr<T>[]>(CAPACITE_DEFAUT)){}
 
-    Liste(int nElements) : nElements_(nElements), elements_(make_unique<shared_ptr<T>[nElements]>){}
+    Liste(int nElements) : nElements_(nElements), elements_(make_unique<shared_ptr<T>[]>(nElements)){}
 
-    Liste(const Liste& autre) : nElements_(nElements), elements_(make_unique<shared_ptr<T>[nElements]>) {
+    Liste(const Liste& autre) : nElements_(autre.nElements_), elements_(make_unique<shared_ptr<T>[]>(autre.nElements_)) {
         copy(autre.elements_.get(), autre.elements_.get() + autre.nElements_, elements_.get());
     }
 
     Liste& operator=(const Liste& autre) {
         if (this != &autre) {
-            nElements_(autre.nElements_);
-            elements_(make_unique<shared_ptr<T>[autre.nElements_]>);
+            nElements_ = autre.nElements_;
+            elements_ = make_unique<shared_ptr<T>[]>(autre.nElements_);
             copy(autre.elements_.get(), autre.elements_.get() + autre.nElements_, elements_.get());
         }
-        return this*;
+        return *this;
     }
     
-    ~Liste();
+    ~Liste() {};
 
-    shared_ptr<T>& operator[](int index) const { return nElements_[index]; }
+    shared_ptr<T>& operator[](int index) const { return elements_[index]; }
 
     void operator+=(const T& element) { elements_[nElements_++] = make_shared<T>(element); }
     
