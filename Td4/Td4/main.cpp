@@ -1,3 +1,10 @@
+/*
+Fichier: main.cpp
+Auteur(s): Kevin Alexander Bejarano Hernandez
+Date de creation: 2023-11-25
+Date de modification: 2023-11-28
+Description: Main.
+*/
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -111,6 +118,12 @@ int main() {
             // TODO: On utilise une fonction lambda pour trouver le media selon son nom
             // il  faut faire appel à la méthode listersi
 
+            auto mediaTrouves = polyflix.listersi([&](Media media) { return media.getTitre() == nomDuMedia; });
+            if (mediaTrouves.obtenirNbElements() != 0)
+                cout << mediaTrouves << endl;
+            else
+                cout << "Le film n'existe pas." << endl;
+            
             cout << SEPARATEUR_2;
             break;
         }
@@ -120,6 +133,11 @@ int main() {
             cin >> annee;
 
             // TODO: On utilise une fonction lambda pour trouver le media selon son année
+            auto mediaAnnee = polyflix.listersi([&](Media media) { return media.getAnneeDeSortie() == annee; });
+            if (mediaAnnee.obtenirNbElements() != 0)
+                cout << mediaAnnee << endl;
+            else
+                cout << "On ne trouve aucun film avec cette année" << endl;
 
             cout << SEPARATEUR_2;
             break;
@@ -155,6 +173,11 @@ int main() {
             }
 
             // TODO: On utilise une fonction lambda pour trouver le media selon la catégorie
+            auto mediaCategorie = polyflix.listersi([&](Media media) { return media.getCategorie() == categorieChoisie; });
+            if (mediaCategorie.obtenirNbElements() != 0)
+                cout << mediaCategorie << endl;
+            else
+                cout << "On ne trouve aucun film avec cette année" << endl;
 
             cout << SEPARATEUR_2;
             break;
@@ -165,7 +188,11 @@ int main() {
             cin >> valeurEvaluation;
 
             // TODO: On utilise une fonction lambda pour trouver le media selon l'évaluation
-
+            auto mediaEvaluation = polyflix.listersi([&](Media media) { return media.obtenirEvaluation() > valeurEvaluation; });
+            if (mediaEvaluation.obtenirNbElements() != 0)
+                cout << mediaEvaluation << endl;
+            else
+                cout << "On ne trouve aucun film avec cette évaluation" << endl;
             cout << SEPARATEUR_2;
             break;
         }

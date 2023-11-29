@@ -292,7 +292,7 @@ double testPolyflix() {
     else {
         cout << "\033[31m" << "L'ajout d'un média déjà existant via operator+= ne devrait pas être possible." << endl << SEPARATEUR_1 << "\033[0m\n";
     }
-
+   
     return points;
 }
 
