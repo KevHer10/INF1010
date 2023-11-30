@@ -54,8 +54,14 @@ Liste<Media> Polyflix::listersi(const function<bool(Media media)>& critere) cons
 /// @param n Le nombre de meilleurs médias à obtenir.
 /// @return Une liste des N meilleurs médias.
 Liste<Media> Polyflix::obtenirNMeilleursMedias(int n) {
-    Liste<Media> MeilleursNotes;
+    if (n <= 0 || n > medias_.obtenirNbElements()) {
+        cout << "Erreur : Nombre invalide." << endl;
+        return {}; 
+    }
+    
+    Liste<Media> MeilleursNotes(n);
     trierMedias();
+    reverse(medias_.begin(), medias_.end());
     copy_n(medias_.begin(), n, MeilleursNotes.begin());
 
     return MeilleursNotes;
