@@ -1,0 +1,30 @@
+"Inception" 4.3
+"The Shawshank Redemption" 3.9
+"Pulp Fiction" 4.1
+"The Dark Knight" 4.6
+"Fight Club" 4.4
+"Jurassic Park" 3.7
+"Forrest Gump" 4.5
+"The Matrix" 4.2
+"Goodfellas" 4.0
+"The Godfather" 4.8
+"Schindler's List" 4.7
+"Interstellar" 4.3
+"Gladiator" 3.8
+"Titanic" 4.1
+"Star Wars: Episode IV - A New Hope" 4.6
+"The Lion King" 4.5
+"Spirited Away" 4.9
+"Princess Mononoke" 4.8
+"My Neighbor Totoro" 4.7
+"Akira" 4.6
+"Grave of the Fireflies" 4.8
+"Your Name" 4.5
+"Weathering with You" 4.2
+"The Girl Who Leapt Through Time" 4.3
+"Ghost in the Shell" 4.4
+"Paprika" 4.1
+"Whisper of the Heart" 4.2
+"Kiki's Delivery Service" 4.3
+"Castle in the Sky" 4.4
+"Howl's Moving Castle" 5.0
